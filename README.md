@@ -13,6 +13,17 @@ The script:
 > ⚠️ **Warning:** This script modifies your system's UEFI boot entries and targets a specific disk (`/dev/nvme1n1`).  
 > Use only if you know what you’re doing and adjust paths to match your system.
 
+> A forced BIOS/firmware update from Windows wiped my Limine UEFI entries.
+> This script is meant for **quick recovery** and to save me time when that
+> happens again.
+>
+> It is more or less *vibe-coded with intent* not designed to be universal,
+> production-safe, or particularly elegant.
+>
+> Use it as inspiration, not as a drop-in solution unless your setup closely
+> matches mine :)
+
+
 ---
 
 ## Script
