@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+sudo limine-deploy /dev/nvme1n1 && \
+sudo cp /boot/limine.conf /boot/EFI/limine/limine.conf && \
+sudo cp /boot/limine.conf /boot/EFI/BOOT/limine.conf && \
+sudo efibootmgr -q --delete-bootnum --bootnum $(efibootmgr | grep -i systemd | awk '{print $1}' | cut -c5-8) 2>/dev/null; \
+sudo efibootmgr --create --disk /dev/nvme1n1 --part 1 --loader '\EFI\limine\limine_x64.efi' --label 'Omarchy (Limine)' --unicode --quiet && \
+sudo efibootmgr --bootorder $(efibootmgr | grep 'Omarchy (Limine)' | awk '{print $1}' | cut -c5-8),0001,0004 && \
+echo "Limine boot fixed and set as first entry"
